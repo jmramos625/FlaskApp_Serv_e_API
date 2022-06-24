@@ -207,6 +207,7 @@ def add_header(response):
     response.headers["Access-Control-Allow-Origin"] = "*"  # permite acessar meu site de qualquer dominio
     response.headers["Access-Control-Allow-Credentials"] = "true"  # além de qualquer dominio, ainda usar credenciais
     return response
+# Testes de segurança
 
 
 # ___________________________________________________________________________________________________
