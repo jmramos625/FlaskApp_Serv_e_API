@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Site de Respeito - MAN</title>
+</head>
+<body>
+<h1>BLOG DO RESPEITO - MAN</h1>
+<!-- Faremos agora o formulário para receber os POSTs no Blog -->
+    <form method="POST" action="{{ url_for('add_post') }}">
+        <!-- Criando os Inputs para o formulário -->
+        <!-- </br> é usado para pular uma linha >-->
+        <label>Tile: </label></br>
+        <input name="title"></br></br>
+        <label>Content: </label></br>
+        <input name="author"></br></br>
+        <label>Author: </label></br>
+        <textarea name="content" rows="10" cols="50"></textarea></br></br>
+        <input type="submit" value="SUBMIT"> <!-- <Botão para enviar o formulário >-->
+    </form>
+    <hr>
+    <!-- Aqui vamos criar um for para ler todos os inputs feitos no formulário -->
+    {% for post in posts %}
+        <h2>{{post.title}}</h2>
+        <h4>{{post.author}}</h4>
+        <p>{{post.content}}</p><br>
+        <!-- Para apagar o conteúdo -->
+    <!-- as ancoras do DELETE e EDIT não podem fazer parte do FOR -->
+    <a href="{{ url_for('delete_post', id=post.id) }}">DELETE</a><br>
+    <a href="{{ url_for('edit_post', id=post.id) }}">EDIT</a>
+    <br><br><hr> <!-- O <hr> é um separador que divide os textos apresentados -->
+    {% endfor %}
+</body>
+</html>
